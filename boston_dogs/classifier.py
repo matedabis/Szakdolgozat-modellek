@@ -73,11 +73,16 @@ model.add(Activation('relu'))
 
 model.add(MaxPool2D((2,2)))
 
+model.add(Conv2D(128,(3,3)))
+model.add(Activation('relu'))
+
+model.add(MaxPool2D((2,2)))
+
 model.add(Flatten())
 
-model.add(Dropout(0.5))
+model.add(Dropout(0.2))
 
-model.add(Dense(512))
+model.add(Dense(128))
 model.add(Activation('relu'))
 
 model.add(Dense(Y.shape[1]))
@@ -85,7 +90,7 @@ model.add(Activation('softmax'))
 
 model.summary()
 
-batch=32
+batch=8
 
 model.compile(
       optimizer='adam',
